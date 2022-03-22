@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Teams = () => {
+const LogIn = () => {
     return (
         <h2>Teams</h2>
     )
 }
 
-export default Teams;
+export default LogIn;

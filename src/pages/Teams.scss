@@ -1,0 +1,22 @@
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+
+  figure {
+    padding: 2rem;
+    transition: all 250ms ease-in-out;
+    border-radius: 10px;
+  }
+
+  figure:hover {
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.08),
+    0 2px 4px rgba(0,0,0,0.07),
+    0 4px 8px rgba(0,0,0,0.07),
+    0 8px 16px rgba(0,0,0,0.07),
+    0 16px 32px rgba(0,0,0,0.07),
+    0 32px 64px rgba(0,0,0,0.07);
+    transition: all 250ms ease-in-out;
+  }
+}
