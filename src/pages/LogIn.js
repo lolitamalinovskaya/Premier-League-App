@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LogIn = () => {
+const LogUp = () => {
     return (
-        <h2>Teams</h2>
+        <h2>LogUp</h2>
     )
 }
 
-export default LogIn;
+export default LogUp;

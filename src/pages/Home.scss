@@ -1,0 +1,9 @@
+.main-logo {
+  height: 70vmin;
+  pointer-events: none;
+  width: 70%;
+
+  @media(max-width: 768px) {
+    width: 100%;
+  }
+}

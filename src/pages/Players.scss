@@ -4,15 +4,18 @@ h2 {
 
 .players {
   text-align: start;
-  width: 80%;
+  width: 100%;
   user-select: none;
 
   td, th {
     padding: 20px;
-    border-radius: 3px;
     box-shadow: inset 0 -3em 3em rgb(38, 81, 100),
     0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+
+    @media(max-width: 768px) {
+      padding: 5px;
+    }
   }
 
   table {
@@ -27,5 +30,9 @@ h2 {
 
   thead th {
     width: 25%;
+
+    @media(max-width: 768px) {
+      width: 15%;
+    }
   }
 }

@@ -1,14 +1,6 @@
 import logo from '../logo.svg';
-import '../App.css';
+import './Home.scss';
 
-
-function Home() {
-
-  return (
-    <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-    </div>
-  );
-}
+const Home = () => <img src={logo} className="main-logo" alt="logo" />
 
 export default Home;

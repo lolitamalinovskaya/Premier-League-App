@@ -1,13 +1,30 @@
 .teams {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
+
+  @media(max-width: 768px) {
+    justify-content: center;
+  }
 
   figure {
     padding: 2rem;
     transition: all 250ms ease-in-out;
     border-radius: 10px;
+    width: 170px;
+    margin: 0;
+
+    @media(max-width: 1024px) {
+      background-color: #5b3c6c;
+    }
+
+  }
+
+  figcaption {
+    @media(max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   figure:hover {

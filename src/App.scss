@@ -1,0 +1,17 @@
+.wrapper-bg {
+  background-color: #4db8e1;
+  min-height: 100vh;
+}
+
+.wrapper {
+  text-align: center;
+  min-height: 90vh;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #4db8e1;
+  max-width: calc(100% - 20%);
+  min-width: 320px;
+  color: white;
+  font-size: calc(10px + 2vmin);
+}
+
