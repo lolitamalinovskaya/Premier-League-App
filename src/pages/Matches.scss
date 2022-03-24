@@ -1,0 +1,44 @@
+.matches {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #6f4a8a;
+  border-radius: 15px;
+  padding: 1%;
+
+  &-count {
+    font-size: 62px;
+
+    @media(max-width: 768px) {
+      font-size: 42px;
+    }
+  }
+
+  figure {
+    max-width: 150px;
+    margin: unset;
+    padding: 2%;
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3%;
+  }
+
+  &-logo {
+    width: 7rem;
+    height: 7rem;
+
+    @media(max-width: 768px) {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    @media(max-width: 480px) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}

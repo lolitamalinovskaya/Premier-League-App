@@ -17,7 +17,7 @@ const Players = () => {
     }, []);
 
     return (
-        <>
+        <section>
             <h2>Players</h2>
             {isLoaded ?
                     <table className="players">
@@ -37,7 +37,7 @@ const Players = () => {
                         </tbody>
                     </table> : <Progress />
             }
-        </>
+        </section>
     )
 }
 
