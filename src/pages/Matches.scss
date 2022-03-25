@@ -1,11 +1,15 @@
 .matches {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  background-color: #6f4a8a;
-  border-radius: 15px;
-  padding: 1%;
+  margin-bottom: 7rem;
+
+  &-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #5b3c6c;
+    border-radius: 15px;
+    padding: 1%;
+  }
 
   &-count {
     font-size: 62px;

@@ -1,9 +1,20 @@
 import React from 'react';
+import './LogIn.scss';
+import {Link} from "react-router-dom";
 
-const LogUp = () => {
+const LogIn = () => {
     return (
-        <h2>LogUp</h2>
+        <section className="log-in">
+            <h2>LogIn</h2>
+            <div className="log-in-inner">
+                <button>Login with Google</button>
+                <input type="text" placeholder="Email"/>
+                <input type="password" placeholder="Password"/>
+                <button>Login</button>
+                <p>Don’t have an account ? <Link to={'/logUp'}> Register </Link></p>
+            </div>
+        </section>
     )
 }
 
-export default LogUp;
+export default LogIn;

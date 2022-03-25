@@ -17,10 +17,10 @@ const Matches = () => {
     }, [])
 
     return (
-        <section>
+        <section className="matches">
             <h2>Matches</h2>
             {isLoaded ?
-                matches && matches.map((match) => <div className="matches" key={match.id}>
+                matches && matches.map((match) => <div className="matches-card" key={match.id}>
                         <figure>
                             <img src={match.home_team.logo} alt="Logo" className="matches-logo"/>
                             <figcaption>{match.home_team.name}</figcaption>

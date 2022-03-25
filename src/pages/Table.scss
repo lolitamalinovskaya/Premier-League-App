@@ -1,0 +1,61 @@
+td, th {
+  border: 1px solid #000000;
+}
+
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #5c436b;
+  box-shadow: rgba(0, 0, 0, 0.56) 0 22px 70px 4px;
+  margin-bottom: 7rem;
+
+  tr th:first-child {
+    width: 50%;
+
+    @media(max-width: 1040px) {
+      width: 55%;
+    }
+  }
+
+  td {
+    border: 1px solid #000000;
+  }
+
+  tr th {
+    width: 30%;
+    height: 3rem;
+    font-size: calc(5px + 2vmin);
+
+    @media(max-width: 1250px) {
+      width: 15%;
+      height: 8rem;
+      writing-mode: vertical-rl;
+    }
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: unset;
+
+    img {
+      padding-top: 0.5rem;
+      width: 4rem;
+      height: 5rem;
+    }
+
+    figcaption {
+      padding: 0 0.5rem;
+
+      @media(max-width: 990px) {
+        font-size: calc(5px + 2vmin);
+      }
+    }
+  }
+}
+
+
+
