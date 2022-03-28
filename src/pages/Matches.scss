@@ -31,6 +31,16 @@
     margin: 0 3%;
   }
 
+  &-stadium {
+    margin: 0 0 1rem;
+  }
+
+  &-date {
+    @media(max-width: 768px) {
+      font-size: calc(7px + 2vmin);
+    }
+  }
+
   &-logo {
     width: 7rem;
     height: 7rem;

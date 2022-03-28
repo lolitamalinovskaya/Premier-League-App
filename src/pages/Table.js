@@ -1,25 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {Progress} from "../components/Progress";
 import './Table.scss';
 
-const Table = () => {
-    const [table, setTable] = useState([]);
-    const [isLoaded, setIsLoaded] = useState(false);
-
+const Table = ({state, dispatch}) => {
     useEffect(() => {
+        if (state.table !== null) return
         fetch('https://polar-shelf-59117.herokuapp.com/api/v1/teams/table')
             .then((res) => res.json())
-            .then((res) => {
-                setIsLoaded(true);
-                setTable(res.data);
-            })
-    }, [])
+            .then((res) => dispatch({type: "TABLE", payload: res.data}))
+            .catch((e) => dispatch({type: "ERROR", payload: e}))
+    }, [dispatch, state])
 
     return (
         <section>
             <h2>Table</h2>
-            {isLoaded ?
+            {state.isLoaded ?
                 <table className="table">
+                    <tbody>
                     <tr>
                         <th>Team</th>
                         <th>Games</th>
@@ -30,7 +27,7 @@ const Table = () => {
                         <th>Scored</th>
                         <th>Conceded</th>
                     </tr>
-                    {table && table.map((count) =>
+                    {state.table && state.table.map((count) =>
                         <tr key={count.id}>
                             <td>
                                 <figure className="table-inner">
@@ -47,6 +44,7 @@ const Table = () => {
                             <td>{count.stats?.goalsConceded}</td>
                         </tr>
                     )}
+                    </tbody>
                 </table> : <Progress/>}
         </section>
     )

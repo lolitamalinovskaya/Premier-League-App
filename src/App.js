@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {useReducer} from "react";
 import Navbar from './components/Navbar'
 import Players from "./pages/Players";
 import Teams from "./pages/Teams";
@@ -11,7 +12,51 @@ import LogUp from "./pages/LogUp";
 
 import './App.scss';
 
+function initialState() {
+    return {
+        players: null, /*[]*/
+        teams: null,
+        isLoaded: false,
+        error: null,
+        isFavorite: false, /*in Api*/
+        matches: null,
+        table: null,
+    };
+}
+
+function reducer(state, action) {
+    if (action.type === "PLAYERS") {
+
+        return {...state, players: action.payload, isLoaded: true}
+    }
+    if (action.type === "ERROR") {
+
+        return {...state, error: action.payload}
+    }
+    if (action.type === "TEAMS") {
+
+        return {...state, teams: action.payload, isLoaded: true}
+    }
+    if (action.type === "FAVORITE_TEAM") {
+
+        return {...state, isFavorite: true}
+    }
+    if (action.type === "MATCHES") {
+
+        return {...state, matches: action.payload, isLoaded: true}
+    }
+    if (action.type === "TABLE") {
+
+        return {...state, table: action.payload, isLoaded: true}
+    }
+
+  return state;
+}
+
+
 function App() {
+  const [state, dispatch] = useReducer(reducer, {}, initialState);
+
   return (
       <div className="wrapper-bg">
           <section className="wrapper">
@@ -19,10 +64,10 @@ function App() {
                       <Navbar />
                       <Routes>
                           <Route exact path={'/'} element={<Home />} />
-                          <Route path="players" element={<Players />} />
-                          <Route path="teams" element={<Teams />} />
-                          <Route path="matches" element={<Matches />} />
-                          <Route path="table" element={<Table />} />
+                          <Route path="players" element={<Players state={state} dispatch={dispatch}/>} />
+                          <Route path="teams" element={<Teams state={state} dispatch={dispatch}/>} />
+                          <Route path="matches" element={<Matches state={state} dispatch={dispatch}/>} />
+                          <Route path="table" element={<Table state={state} dispatch={dispatch}/>} />
                           <Route path="logIn" element={<LogIn />} />
                           <Route path="logUp" element={<LogUp />} />
                       </Routes>
