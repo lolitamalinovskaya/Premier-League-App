@@ -9,7 +9,7 @@ const Matches = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCHES", payload: res.data}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
-    }, [dispatch, state])
+    }, [])
 
 
     const parseDate = string => {

@@ -9,7 +9,7 @@ const Table = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "TABLE", payload: res.data}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
-    }, [dispatch, state])
+    }, [])
 
     return (
         <section>

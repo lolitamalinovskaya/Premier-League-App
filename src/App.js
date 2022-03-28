@@ -8,26 +8,27 @@ import Table from "./pages/Table";
 import Home from "./pages/Home";
 import {Footer} from "./components/Footer";
 import LogIn from "./pages/LogIn";
-import LogUp from "./pages/LogUp";
+import SignUp from "./pages/SignUp";
 
 import './App.scss';
 
 function initialState() {
     return {
-        players: null, /*[]*/
+        players: null,
         teams: null,
         isLoaded: false,
         error: null,
-        isFavorite: false, /*in Api*/
+        isFavorite: false,
         matches: null,
         table: null,
+        playersLinks: null,
     };
 }
 
 function reducer(state, action) {
     if (action.type === "PLAYERS") {
 
-        return {...state, players: action.payload, isLoaded: true}
+        return {...state, players: action.payload, isLoaded: true, playersLinks: action.next}
     }
     if (action.type === "ERROR") {
 
@@ -69,7 +70,7 @@ function App() {
                           <Route path="matches" element={<Matches state={state} dispatch={dispatch}/>} />
                           <Route path="table" element={<Table state={state} dispatch={dispatch}/>} />
                           <Route path="logIn" element={<LogIn />} />
-                          <Route path="logUp" element={<LogUp />} />
+                          <Route path="signUp" element={<SignUp />} />
                       </Routes>
                   </Router>
               <Footer />
