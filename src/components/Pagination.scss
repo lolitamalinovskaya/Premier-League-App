@@ -1,0 +1,33 @@
+.pagination {
+  &-active, &-disabled {
+    width: 4rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: calc(5px + 2vmin);
+    transition: background-color 0.25s ease-in-out;
+
+    @media(max-width: 768px) {
+      font-size: unset;
+    }
+
+    &:hover, &:focus {
+      background-color: #5c436b;
+    }
+  }
+
+  &-disabled {
+    cursor: unset;
+    color: #7985b7;
+    border: 2px solid #7985b7;
+
+    &:hover, &:focus {
+      background-color: unset;
+    }
+  }
+}

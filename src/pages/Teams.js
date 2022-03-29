@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Progress} from "../components/Progress";
 import './Teams.scss';
-import WhiteHeart from '../icons/whiteheart.svg';
-import RedHeart from '../icons/redheart.svg';
+import Team from "../components/Team";
 
 const Teams = ({state, dispatch}) => {
-    const [heart, setHeart] = useState(false);
 
     useEffect(() => {
          if (state.teams !== null) return
@@ -15,25 +13,12 @@ const Teams = ({state, dispatch}) => {
             .catch((e) => dispatch({type: "ERROR", payload: e}))
     },[]);
 
-     const toggleHeart = () => {
-         dispatch({type: "FAVORITE_TEAM"})
-     };
-
     return (
         <section>
             <h2>Teams</h2>
             <div className={"teams"}>
                 {state.isLoaded ?
-                    state.teams && state.teams.map((team) => <figure key={team.id} style={{position: "relative"}}
-                                                                     >
-                            <img style={{width: "10rem", height: "10rem"}} src={team.logo} alt="Logo"/>
-                            <img src={heart ? RedHeart : WhiteHeart}
-                                 style={{width: '24px', height: '24px', position: "absolute", top: "0.8rem", right: "0.8rem"}}
-                                 onClick={toggleHeart}
-                                 alt="Like"
-                            />
-                            <figcaption>{team.name}</figcaption>
-                        </figure>
+                    state.teams && state.teams.map((team) => <Team team={team} key={team.id} />
                     ) : <Progress/>
                 }
             </div>

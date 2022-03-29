@@ -9,7 +9,7 @@ const Table = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "TABLE", payload: res.data}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
-    }, [dispatch, state])
+    }, [])
 
     return (
         <section>
@@ -18,14 +18,14 @@ const Table = ({state, dispatch}) => {
                 <table className="table">
                     <tbody>
                     <tr>
-                        <th>Team</th>
-                        <th>Games</th>
-                        <th>Points</th>
-                        <th>Wins</th>
-                        <th>Loses</th>
-                        <th>Draws</th>
-                        <th>Scored</th>
-                        <th>Conceded</th>
+                        <th>TEAM</th>
+                        <th>M</th>
+                        <th>W</th>
+                        <th>D</th>
+                        <th>L</th>
+                        <th>G+</th>
+                        <th>G-</th>
+                        <th>PTS</th>
                     </tr>
                     {state.table && state.table.map((count) =>
                         <tr key={count.id}>
@@ -36,12 +36,12 @@ const Table = ({state, dispatch}) => {
                                 </figure>
                             </td>
                             <td>{count.stats?.matches}</td>
-                            <td>{count.stats?.points}</td>
                             <td>{count.stats?.wins}</td>
-                            <td>{count.stats?.loses}</td>
                             <td>{count.stats?.draws}</td>
+                            <td>{count.stats?.loses}</td>
                             <td>{count.stats?.goalsScored}</td>
                             <td>{count.stats?.goalsConceded}</td>
+                            <td><b>{count.stats?.points}</b></td>
                         </tr>
                     )}
                     </tbody>

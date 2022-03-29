@@ -20,7 +20,7 @@
       padding: 2% 0;
     }
 
-    a {
+    a, a:visited {
       text-decoration: none;
       transition: all 0.25s ease-in-out;
 
@@ -29,7 +29,7 @@
       }
     }
 
-    a:hover {
+    a:hover, a:focus {
       color: #ffffff;
       transition: all 0.25s ease-in-out;
       font-size: calc(13px + 2vmin);

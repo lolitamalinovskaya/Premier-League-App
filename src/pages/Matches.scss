@@ -1,5 +1,7 @@
 .matches {
-  margin-bottom: 7rem;
+  &-wrapper {
+    margin-bottom: 7rem;
+  }
 
   &-card {
     display: flex;
