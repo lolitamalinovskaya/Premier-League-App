@@ -14,7 +14,7 @@ import './App.scss';
 
 function initialState() {
     return {
-        players: null, /*[]*/
+        players: null,
         teams: null,
         isLoaded: false,
         error: null,
@@ -23,6 +23,7 @@ function initialState() {
         table: null,
         playersLinks: null,
         matchesLinks: null,
+        team: null,
     };
 }
 
@@ -50,6 +51,10 @@ function reducer(state, action) {
     if (action.type === "TABLE") {
 
         return {...state, table: action.payload, isLoaded: true}
+    }
+    if (action.type === "TEAM") {
+
+        return {...state, team: action.payload, isLoaded: true}
     }
 
   return state;

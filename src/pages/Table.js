@@ -23,8 +23,9 @@ const Table = ({state, dispatch}) => {
                         <th>W</th>
                         <th>D</th>
                         <th>L</th>
-                        <th>G+</th>
-                        <th>G-</th>
+                        <th>GF</th>
+                        <th>GA</th>
+                        <th>GD</th>
                         <th>PTS</th>
                     </tr>
                     {state.table && state.table.map((count) =>
@@ -41,6 +42,7 @@ const Table = ({state, dispatch}) => {
                             <td>{count.stats?.loses}</td>
                             <td>{count.stats?.goalsScored}</td>
                             <td>{count.stats?.goalsConceded}</td>
+                            <td>{count.stats?.goalsScored - count.stats?.goalsConceded}</td>
                             <td><b>{count.stats?.points}</b></td>
                         </tr>
                     )}

@@ -36,7 +36,7 @@ const Players = ({state, dispatch}) => {
     const loadLastPage = () => {
         fetch(`${state.playersLinks?.last}`)
             .then((res) => res.json())
-            .then((res) => dispatch({type: "PLAYERS", payload: res.data}))
+            .then((res) => dispatch({type: "PLAYERS", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
     }
 
