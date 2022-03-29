@@ -14,14 +14,15 @@ import './App.scss';
 
 function initialState() {
     return {
-        players: null,
+        players: null, /*[]*/
         teams: null,
         isLoaded: false,
         error: null,
-        isFavorite: false,
+        isFavorite: false, /*in Api*/
         matches: null,
         table: null,
         playersLinks: null,
+        matchesLinks: null,
     };
 }
 
@@ -44,7 +45,7 @@ function reducer(state, action) {
     }
     if (action.type === "MATCHES") {
 
-        return {...state, matches: action.payload, isLoaded: true}
+        return {...state, matches: action.payload, isLoaded: true, matchesLinks: action.next}
     }
     if (action.type === "TABLE") {
 
