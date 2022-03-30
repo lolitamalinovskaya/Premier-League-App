@@ -17,10 +17,8 @@ const Teams = ({state, dispatch}) => {
         <section>
             <h2>Teams</h2>
             <div className={"teams"}>
-                {state.isLoaded ?
-                    state.teams && state.teams.map((team) => <Team team={team} key={team.id} />
-                    ) : <Progress/>
-                }
+                {!state.isLoaded ? <Progress/> :
+                    state.teams && state.teams.map((team) => <Team team={team} key={team.id} id={team.id}/>)}
             </div>
         </section>
     )

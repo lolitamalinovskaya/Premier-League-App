@@ -1,0 +1,52 @@
+.squad {
+  &-logo {
+    width: 12rem;
+    height: 12rem;
+    animation: rotation 5s infinite linear;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: perspective(200px) rotateY(0);
+    }
+
+    25% {
+      transform: perspective(200px) rotateY(20deg);
+    }
+
+    75% {
+      transform: perspective(200px) rotateY(-20deg);
+    }
+
+    100% {
+      transform: perspective(200px) rotateY(0);
+    }
+  }
+
+  p {
+    @media(max-width: 768px) {
+      font-size: unset;
+    }
+  }
+
+  &-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    @media(max-width: 768px) {
+      gap: 1rem;
+    }
+  }
+
+  &-name {
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 15rem;
+    padding: 0.5rem;
+    background-color: #5b3c6c;
+    box-shadow: rgb(91, 60, 108) 0 8px 24px;
+  }
+}

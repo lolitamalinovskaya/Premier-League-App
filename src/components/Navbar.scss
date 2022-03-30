@@ -8,9 +8,20 @@
     flex-direction: column;
   }
 
-  .logo {
+  &-logo {
     width: 75px;
     height: 75px;
+    transition: 0.4s;
+    color: #3d195b;
+    border-radius: 50%;
+
+    @media(max-width: 768px) {
+      width: 6rem;
+      height: 6rem;
+      &:hover, &:focus {
+        box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px, rgba(0, 0, 0, 0.22) 0 15px 12px;
+      }
+    }
   }
 
   li {
@@ -36,4 +47,15 @@
       font-size: calc(13px + 2vmin);
     }
   }
+
+    &-hide {
+      @media(max-width: 768px) {
+        display: none;
+        overflow: hidden;
+      }
+    }
+
+    &-show {
+     display: block;
+    }
 }

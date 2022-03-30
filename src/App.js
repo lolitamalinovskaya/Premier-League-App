@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import {Footer} from "./components/Footer";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import Squads from "./components/Squads";
 
 import './App.scss';
 
@@ -23,7 +24,7 @@ function initialState() {
         table: null,
         playersLinks: null,
         matchesLinks: null,
-        team: null,
+        squad: null,
     };
 }
 
@@ -52,9 +53,9 @@ function reducer(state, action) {
 
         return {...state, table: action.payload, isLoaded: true}
     }
-    if (action.type === "TEAM") {
+    if (action.type === "SQUAD") {
 
-        return {...state, team: action.payload, isLoaded: true}
+        return {...state, squad: action.payload, isLoaded: true}
     }
 
   return state;
@@ -70,7 +71,8 @@ function App() {
                   <Router>
                       <Navbar />
                       <Routes>
-                          <Route exact path={'/'} element={<Home />} />
+                          <Route path="teams/:id" element={<Squads state={state} dispatch={dispatch}/>} />
+                          <Route exact path="/" element={<Home />} />
                           <Route path="players" element={<Players state={state} dispatch={dispatch}/>} />
                           <Route path="teams" element={<Teams state={state} dispatch={dispatch}/>} />
                           <Route path="matches" element={<Matches state={state} dispatch={dispatch}/>} />

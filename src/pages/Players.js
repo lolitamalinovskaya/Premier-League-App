@@ -43,8 +43,8 @@ const Players = ({state, dispatch}) => {
     return (
         <section>
             <h2>Players</h2>
-            {state.isLoaded ?
-                <>
+            {!state.isLoaded ? <Progress /> :
+                <div>
                     <table className="players">
                         <tbody>
                         <tr>
@@ -69,9 +69,7 @@ const Players = ({state, dispatch}) => {
                         statePrev={state.playersLinks?.prev}
                         stateNext={state.playersLinks?.next}
                     />
-                </>
-                : <Progress/>
-            }
+                </div>}
         </section>
     )
 }

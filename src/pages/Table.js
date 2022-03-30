@@ -14,40 +14,43 @@ const Table = ({state, dispatch}) => {
     return (
         <section>
             <h2>Table</h2>
-            {state.isLoaded ?
-                <table className="table">
-                    <tbody>
-                    <tr>
-                        <th>TEAM</th>
-                        <th>M</th>
-                        <th>W</th>
-                        <th>D</th>
-                        <th>L</th>
-                        <th>GF</th>
-                        <th>GA</th>
-                        <th>GD</th>
-                        <th>PTS</th>
-                    </tr>
-                    {state.table && state.table.map((count) =>
-                        <tr key={count.id}>
-                            <td>
-                                <figure className="table-inner">
-                                    <img src={count.logo} alt="Logo" />
-                                    <figcaption>{count.name}</figcaption>
-                                </figure>
-                            </td>
-                            <td>{count.stats?.matches}</td>
-                            <td>{count.stats?.wins}</td>
-                            <td>{count.stats?.draws}</td>
-                            <td>{count.stats?.loses}</td>
-                            <td>{count.stats?.goalsScored}</td>
-                            <td>{count.stats?.goalsConceded}</td>
-                            <td>{count.stats?.goalsScored - count.stats?.goalsConceded}</td>
-                            <td><b>{count.stats?.points}</b></td>
+            {!state.isLoaded ? <Progress/> :
+                <div>
+                    <table className="table">
+                        <tbody>
+                        <tr>
+                            <th>TEAM</th>
+                            <th>M</th>
+                            <th>W</th>
+                            <th>D</th>
+                            <th>L</th>
+                            <th>GF</th>
+                            <th>GA</th>
+                            <th>GD</th>
+                            <th>PTS</th>
                         </tr>
-                    )}
-                    </tbody>
-                </table> : <Progress/>}
+                        {state.table && state.table.map((count) =>
+                            <tr key={count.id}>
+                                <td>
+                                    <figure className="table-inner">
+                                        <img src={count.logo} alt="Logo" />
+                                        <figcaption>{count.name}</figcaption>
+                                    </figure>
+                                </td>
+                                <td>{count.stats?.matches}</td>
+                                <td>{count.stats?.wins}</td>
+                                <td>{count.stats?.draws}</td>
+                                <td>{count.stats?.loses}</td>
+                                <td>{count.stats?.goalsScored}</td>
+                                <td>{count.stats?.goalsConceded}</td>
+                                <td>{count.stats?.goalsScored - count.stats?.goalsConceded}</td>
+                                <td><b>{count.stats?.points}</b></td>
+                            </tr>
+                        )}
+                        </tbody>
+                    </table>
+                </div>
+               }
         </section>
     )
 }

@@ -57,8 +57,8 @@ const Matches = ({state, dispatch}) => {
     return (
         <section className="matches">
             <h2>Matches</h2>
-            {state.isLoaded ?
-                <>
+            {!state.isLoaded ? <Progress /> :
+                <div>
                     <div className="matches-wrapper">
                         {state.matches && state.matches.map((match) =>
                             <div className="matches-card" key={match.id}>
@@ -86,7 +86,7 @@ const Matches = ({state, dispatch}) => {
                         loadLastPage={loadLastPage}
                         statePrev={state.matchesLinks?.prev}
                         stateNext={state.matchesLinks?.next}/>
-                </> : <Progress/> }
+                </div>}
         </section>
     )
 }
