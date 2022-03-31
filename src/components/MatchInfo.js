@@ -35,7 +35,8 @@ const MatchInfo = ({state, dispatch}) => {
                         </figure>
                         <span className="info_goal">{state.matchInfo?.stats?.goals_home_team}</span>
                         <div style={{display: 'flex', flexDirection: "column"}}>
-                            <span>{state.matchInfo.stadium.name},<br/>{state.matchInfo.stadium.city}</span>
+                            <span
+                                className="info_city">{state.matchInfo.stadium?.name},<br/>{state.matchInfo.stadium?.city}</span>
                             <span className="info_vs">VS</span>
                         </div>
 
@@ -48,25 +49,15 @@ const MatchInfo = ({state, dispatch}) => {
                     <p className="info_time">{state.matchInfo.is_finished ? 'MATCH FINISHED!' : parseDate(state.matchInfo.date)}</p>
                     {state.matchInfo.is_finished ?
                         <>
-                            <h5>EVENTS</h5>
+                            <p className={'info_events'}>EVENTS</p>
                             {state.matchInfo?.game_events && state.matchInfo?.game_events.map((event) =>
                                 <div key={event.id}>
-                                    <p><span>{event?.event_type.description} {event?.description}</span><span> at {event?.minute} minutes</span> <span>{showNamePlayer(event?.player_id)}!</span></p>
+                                    <p>
+                                        <span>{event?.event_type.description}</span><span> at {event?.minute} minutes</span> <span>{showNamePlayer(event?.player_id)}!</span></p>
                                 </div>
-
-/* Alex scored a goal in the 26th minute */
-
-                            )
-
-
-                            }
-
+                            )}
                         </>
-
-
-                    : null}
-
-
+                        : null}
                 </div>
             }
         </section>

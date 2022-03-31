@@ -3,10 +3,12 @@ import {Link} from "react-router-dom";
 import './Navbar.scss';
 import Logo from '../icons/logo.svg';
 
-const Navbar = () => {
+const Navbar = ({state, dispatch}) => {
     const [showNavBar, setHhowNavBar] = useState(false);
+    const [showFavorite, setShowFavorite] = useState(false);
 
     const toggleNavBar = () => setHhowNavBar(!showNavBar);
+    const toggleFavorite = () => setShowFavorite(!showFavorite);
 
     const navClassName = showNavBar ? "navbar-show" : "navbar-hide";
 
@@ -31,10 +33,11 @@ const Navbar = () => {
                 <Link to="/table">Table</Link>
             </li>
             <li onClick={toggleNavBar} className={navClassName}>
-                <Link to="/logIn">LogIn</Link>
+                {!state.userId?.id ? <Link to="/logIn">LogIn</Link> : <span onClick={toggleFavorite}>{state.userId?.name}</span> }
+                {showFavorite ? <Link style={{marginLeft: "4rem"}} to="/user-favorite-teams">Favorite</Link> : null}
             </li>
             <li onClick={toggleNavBar} className={navClassName}>
-                <Link to="/signUp">SignUp</Link>
+                {!state.userId?.id ? <Link to="/signUp">SignUp</Link> : <span onClick={() => dispatch({type: "LOG_OUT"})}>logOut</span> }
             </li>
         </div>
     )

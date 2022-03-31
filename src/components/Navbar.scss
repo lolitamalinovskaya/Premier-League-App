@@ -31,7 +31,7 @@
       padding: 2% 0;
     }
 
-    a {
+    a, span {
       color: #3d195b;
       text-decoration: none;
       transition: all 0.25s ease-in-out;
@@ -41,7 +41,7 @@
       }
     }
 
-    a:hover, a:focus {
+    a:hover, a:focus, span:hover, span:focus {
       color: #ffffff;
       transition: all 0.25s ease-in-out;
       font-size: calc(13px + 2vmin);

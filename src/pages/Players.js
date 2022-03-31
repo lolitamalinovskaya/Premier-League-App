@@ -17,6 +17,7 @@ const Players = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "PLAYERS", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     const loadPrevPage = () => {
@@ -24,6 +25,7 @@ const Players = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "PLAYERS", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     const loadNextPage = () => {
@@ -31,6 +33,7 @@ const Players = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "PLAYERS", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     const loadLastPage = () => {
@@ -38,6 +41,7 @@ const Players = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "PLAYERS", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     return (

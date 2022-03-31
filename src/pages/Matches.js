@@ -19,6 +19,7 @@ const Matches = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCHES", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     const loadNextPage = () => {
@@ -26,6 +27,7 @@ const Matches = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCHES", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     const loadPrevPage = () => {
@@ -33,6 +35,7 @@ const Matches = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCHES", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     const loadLastPage = () => {
@@ -40,6 +43,7 @@ const Matches = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCHES", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
+        window.scrollTo(0,0);
     }
 
     return (

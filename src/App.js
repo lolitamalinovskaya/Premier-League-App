@@ -13,6 +13,7 @@ import Squads from "./components/Squads";
 import MatchInfo from "./components/MatchInfo";
 
 import './App.scss';
+import FavoriteTeams from "./pages/FavoriteTeams";
 
 function initialState() {
     return {
@@ -20,13 +21,17 @@ function initialState() {
         teams: null,
         isLoaded: false,
         error: null,
-        isFavorite: false, /*in Api*/
+        favoriteTeams: null,
         matches: null,
         table: null,
         playersLinks: null,
         matchesLinks: null,
         squad: null,
         matchInfo: null,
+        logIn: null,
+        password: null,
+        accessToken: null,
+        userId: null,
     };
 }
 
@@ -43,9 +48,9 @@ function reducer(state, action) {
 
         return {...state, teams: action.payload, isLoaded: true}
     }
-    if (action.type === "FAVORITE_TEAM") {
+    if (action.type === "FAVORITE_TEAMS") {
 
-        return {...state, isFavorite: true}
+        return {...state, favoriteTeams: action.payload, isLoaded: true}
     }
     if (action.type === "MATCHES") {
 
@@ -63,6 +68,18 @@ function reducer(state, action) {
 
         return {...state, matchInfo: action.payload, isLoaded: true}
     }
+    if (action.type === "ACCESS_TOKEN") {
+
+        return {...state, accessToken: action.payload}
+    }
+    if (action.type === "USER_ID") {
+
+        return {...state, userId: action.payload}
+    }
+    if (action.type === "LOG_OUT") {
+
+        return {...state, userId: undefined, accessToken: undefined}
+    }
 
   return state;
 }
@@ -75,16 +92,17 @@ function App() {
       <div className="wrapper-bg">
           <section className="wrapper">
                   <Router>
-                      <Navbar />
+                      <Navbar state={state} dispatch={dispatch}/>
                       <Routes>
                           <Route path="matches/:id" element={<MatchInfo state={state} dispatch={dispatch}/>} />
+                          <Route path="user-favorite-teams" element={<FavoriteTeams state={state} dispatch={dispatch}/>} />
                           <Route path="teams/:id" element={<Squads state={state} dispatch={dispatch}/>} />
                           <Route exact path="/" element={<Home />} />
                           <Route path="players" element={<Players state={state} dispatch={dispatch}/>} />
                           <Route path="teams" element={<Teams state={state} dispatch={dispatch}/>} />
                           <Route path="matches" element={<Matches state={state} dispatch={dispatch} />} />
                           <Route path="table" element={<Table state={state} dispatch={dispatch}/>} />
-                          <Route path="logIn" element={<LogIn />} />
+                          <Route path="logIn" element={<LogIn state={state} dispatch={dispatch}/>} />
                           <Route path="signUp" element={<SignUp />} />
                       </Routes>
                   </Router>

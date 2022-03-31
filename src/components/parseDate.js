@@ -2,7 +2,7 @@ import React from "react";
 
 const parseDate = string => {
     let fullDate = new Date(string);
-    let month = fullDate.toLocaleString('default', {month: "short"});
+    let month = fullDate.toLocaleString('en', {month: "short"});
     let year = fullDate.getFullYear();
     let time = `${fullDate.getHours()}:${fullDate.getMinutes()}`;
     let date = `${fullDate.getDate()} ${month} ${year}`;

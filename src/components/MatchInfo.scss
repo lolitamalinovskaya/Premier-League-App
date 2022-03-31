@@ -10,7 +10,7 @@
     align-items: center;
     gap: 2rem;
     margin-top: 3rem;
-    background-color: #5c436b;
+    background-color: #5b3c6c;
     padding: 1rem;
     border-radius: 15px;
 
@@ -51,19 +51,22 @@
     @media(max-width: 768px) {
       font-size: calc(12px + 2vmin);
     }
-
-    //@media(max-width: 500px) {
-    //  font-size: calc(7px + 2vmin);
-    //}
-
-
   }
 
   &_goal {
     font-size: calc(62px + 2vmin);
+    margin: 0 0.5rem;
 
     @media(max-width: 768px) {
       font-size: calc(42px + 2vmin);
+    }
+  }
+
+  &_city {
+    font-size: calc(16px + 2vmin);
+
+    @media(max-width: 768px) {
+      font-size: unset;
     }
   }
 
@@ -81,8 +84,9 @@
     max-width: 30%;
     text-align: center;
     margin: 2rem auto;
-    border: 2px solid white;
-    background-color: #5c436b;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: #5b3c6c;
     box-shadow: rgb(60, 31, 77) 0 5px 15px;
 
     @media(max-width: 768px) {

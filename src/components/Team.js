@@ -4,18 +4,25 @@ import WhiteHeart from '../icons/whiteheart.svg';
 import RedHeart from '../icons/redheart.svg';
 import {Link} from "react-router-dom";
 
-const Team = ({state, dispatch, team, id}) => {
+const Team = ({team, id, onClick}) => {
+
+    const [state, setState] = useState(false);
 
     return (
-        <Link key={team.id} to={`/teams/${id}`} target="_blank" className="link">
+            <figure>
                 <img style={{width: "10rem", height: "10rem"}} src={team.logo} alt="Logo"/>
-                <img src={state?.isFavorite ? RedHeart : WhiteHeart}
+                <img src={state ? RedHeart : WhiteHeart}
                      style={{width: '24px', height: '24px', position: "absolute", top: "0.8rem", right: "0.8rem"}}
-                    // onClick={toggleLike}
+                     onClick={() => {
+                         setState(!state);
+                         onClick(team.id);
+                     }}
                      alt="Like"
                 />
+                <Link key={team.id} to={`/teams/${id}`} className="link">
                 <figcaption>{team.name}</figcaption>
-        </Link>
+                </Link>
+            </figure>
     )
 }
 
