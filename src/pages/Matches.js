@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {Progress} from "../components/Progress";
 import "./Matches.scss";
 import Pagination from "../components/Pagination";
+import {Link} from "react-router-dom";
+import parseDate from "../components/parseDate";
 
 const Matches = ({state, dispatch}) => {
     useEffect(() => {
@@ -11,20 +13,6 @@ const Matches = ({state, dispatch}) => {
             .then((res) => dispatch({type: "MATCHES", payload: res.data, next: res.links}))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
     }, [])
-
-    const parseDate = string => {
-        let fullDate = new Date(string);
-        let month = fullDate.toLocaleString('default', {month: "short"});
-        let year = fullDate.getFullYear();
-        let time = `${fullDate.getHours()}:${fullDate.getMinutes()}`;
-        let date = `${fullDate.getDate()} ${month} ${year}`;
-
-        return (
-            <strong>
-                {time} <br/> {date}
-            </strong>
-        );
-    }
 
     const loadFirstPage = () => {
         fetch(`${state.matchesLinks?.first}`)
@@ -61,7 +49,8 @@ const Matches = ({state, dispatch}) => {
                 <div>
                     <div className="matches-wrapper">
                         {state.matches && state.matches.map((match) =>
-                            <div className="matches-card" key={match.id}>
+                           <Link key={match.id} to={`/matches/${match.id}`} target="_blank"
+                                 style={{textDecoration: 'none', color: 'unset', margin: 'unset'}}> <div className="matches-card" id={match.id}>
                                 <figure>
                                     <img src={match.home_team.logo} alt="Logo" className="matches-logo"/>
                                     <figcaption>{match.home_team.name}</figcaption>
@@ -77,6 +66,7 @@ const Matches = ({state, dispatch}) => {
                                     <figcaption>{match.away_team.name}</figcaption>
                                 </figure>
                             </div>
+                           </Link>
                         )}
                     </div>
                     <Pagination

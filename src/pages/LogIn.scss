@@ -1,13 +1,18 @@
 .log-in, .log-up {
   .log-in-inner, .log-up-inner {
     box-sizing: border-box;
+    max-width: 60%;
     padding: 3rem;
     background-color: #5b3c6c;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.56) 0 22px 70px 4px;
-    margin-bottom: 7rem;
+    margin: 0 auto 7rem;
     border-radius: 15px;
+
+    @media(max-width: 990px) {
+      max-width: unset;
+    }
 
     @media(max-width: 768px) {
       padding: 2rem;

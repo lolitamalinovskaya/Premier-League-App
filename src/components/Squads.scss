@@ -3,6 +3,11 @@
     width: 12rem;
     height: 12rem;
     animation: rotation 5s infinite linear;
+
+    @media(max-width: 768px) {
+      width: 10rem;
+      height: 10rem;
+    }
   }
 
   @keyframes rotation {

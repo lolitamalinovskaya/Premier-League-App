@@ -1,0 +1,93 @@
+.info {
+
+  &_wrapper {
+    margin-bottom: 7rem;
+  }
+
+  &_header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    background-color: #5c436b;
+    padding: 1rem;
+    border-radius: 15px;
+
+    @media(max-width: 990px) {
+    gap: unset;
+    }
+  }
+
+  &_logo {
+    width: 10rem;
+    height: 10rem;
+    animation: rotation 5s infinite linear;
+
+    @media(max-width: 768px) {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    @media(max-width: 420px) {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  &_inner {
+    max-width: 15rem;
+    @media(max-width: 768px) {
+      margin: unset;
+    }
+  }
+
+  &_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(32px + 2vmin);
+
+    @media(max-width: 768px) {
+      font-size: calc(12px + 2vmin);
+    }
+
+    //@media(max-width: 500px) {
+    //  font-size: calc(7px + 2vmin);
+    //}
+
+
+  }
+
+  &_goal {
+    font-size: calc(62px + 2vmin);
+
+    @media(max-width: 768px) {
+      font-size: calc(42px + 2vmin);
+    }
+  }
+
+  &_vs {
+    margin: 1rem;
+    font-size: calc(42px + 2vmin);
+
+    @media(max-width: 768px) {
+      font-size: calc(12px + 2vmin);
+    }
+  }
+
+  &_time {
+    padding: 0.5rem;
+    max-width: 30%;
+    text-align: center;
+    margin: 2rem auto;
+    border: 2px solid white;
+    background-color: #5c436b;
+    box-shadow: rgb(60, 31, 77) 0 5px 15px;
+
+    @media(max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+
+}
