@@ -23,7 +23,7 @@ const Squads = ({state, dispatch}) => {
                 <div>
                     <h2>{state.squad?.name} Squad</h2>
                     <img className="squad-logo" src={state.squad?.logo} alt="logo"/>
-                    <p><b>manager: {state.squad.manager}</b></p>
+                    <p><b>manager: {state.squad?.manager}</b></p>
                     <div className="squad-inner">
                         {state.squad?.players && state.squad?.players.map((el) =>
                             <div key={el.id} className="squad-name"><span>{el.name} {el.surname}</span><span style={{color: "lightgray", paddingTop: '0.5rem'}}>{el.position?.name}</span> </div>

@@ -1,16 +1,19 @@
 import React, {useEffect} from 'react';
-import './MatchInfo.scss';
 import {useParams} from "react-router-dom";
+
 import {Progress} from "./Progress";
 import parseDate from "./parseDate";
+
+import './MatchInfo.scss';
 
 const MatchInfo = ({state, dispatch}) => {
     const {id} = useParams();
 
     useEffect(() => {
-        fetch(`http://polar-shelf-59117.herokuapp.com/api/v1/matches/${id}`)
+        fetch(`https://polar-shelf-59117.herokuapp.com/api/v1/matches/${id}`)
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCH_INFO", payload: res.data}))
+            .then((res) =>  console.log(res))
             .then((e) => dispatch({type: "ERROR", payload: e}))
     }, [])
 
@@ -26,7 +29,6 @@ const MatchInfo = ({state, dispatch}) => {
     return (
         <section className="info">
             {!state.isLoaded ? <Progress/> :
-
                 <div className="info_wrapper">
                     <div className="info_header">
                         <figure className="info_inner">
@@ -36,10 +38,9 @@ const MatchInfo = ({state, dispatch}) => {
                         <span className="info_goal">{state.matchInfo?.stats?.goals_home_team}</span>
                         <div style={{display: 'flex', flexDirection: "column"}}>
                             <span
-                                className="info_city">{state.matchInfo.stadium?.name},<br/>{state.matchInfo.stadium?.city}</span>
+                                className="info_city">{state.matchInfo?.stadium.name},<br/>{state.matchInfo?.stadium.city}</span>
                             <span className="info_vs">VS</span>
                         </div>
-
                         <span className="info_goal">{state.matchInfo?.stats?.goals_away_team}</span>
                         <figure className="info_inner">
                             <img src={state.matchInfo?.away_team.logo} alt="Logo" className="info_logo"/>
@@ -48,16 +49,15 @@ const MatchInfo = ({state, dispatch}) => {
                     </div>
                     <p className="info_time">{state.matchInfo.is_finished ? 'MATCH FINISHED!' : parseDate(state.matchInfo.date)}</p>
                     {state.matchInfo.is_finished ?
-                        <>
-                            <p className={'info_events'}>EVENTS</p>
+                        <div className="info_events">
+                            <p>EVENTS</p>
                             {state.matchInfo?.game_events && state.matchInfo?.game_events.map((event) =>
-                                <div key={event.id}>
-                                    <p>
-                                        <span>{event?.event_type.description}</span><span> at {event?.minute} minutes</span> <span>{showNamePlayer(event?.player_id)}!</span></p>
+                                <div key={event.id} className={'info_description'}>
+                                        <span>{event?.event_type.description} at {event?.minute} minutes {showNamePlayer(event?.player_id)}!</span>
                                 </div>
                             )}
-                        </>
-                        : null}
+                        </div>
+                    : null}
                 </div>
             }
         </section>

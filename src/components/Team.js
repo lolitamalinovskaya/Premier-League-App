@@ -1,28 +1,30 @@
-import React, {useEffect, useState} from 'react';
-import '../pages/Teams.scss';
-import WhiteHeart from '../icons/whiteheart.svg';
-import RedHeart from '../icons/redheart.svg';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
-const Team = ({team, id, onClick}) => {
+import WhiteHeart from '../icons/whiteheart.svg';
+import RedHeart from '../icons/redheart.svg';
 
-    const [state, setState] = useState(false);
+import '../pages/Teams.scss';
+
+const Team = ({team, onClick, id}) => {
+    const [heart, setHeart] = useState(false);
+    const toggleHeart = () => setHeart(!heart);
 
     return (
-            <figure>
-                <img style={{width: "10rem", height: "10rem"}} src={team.logo} alt="Logo"/>
-                <img src={state ? RedHeart : WhiteHeart}
-                     style={{width: '24px', height: '24px', position: "absolute", top: "0.8rem", right: "0.8rem"}}
-                     onClick={() => {
-                         setState(!state);
-                         onClick(team.id);
-                     }}
-                     alt="Like"
-                />
-                <Link key={team.id} to={`/teams/${id}`} className="link">
+        <figure>
+            <img className="logo" src={team.logo} alt="Logo"/>
+            <img src={heart ? RedHeart : WhiteHeart}
+                 style={{width: '24px', height: '24px', position: "absolute", top: "1rem", right: "1rem"}}
+                 onClick={() => {
+                     toggleHeart();
+                     onClick(team.id);
+                 }}
+                 alt="Like"
+            />
+            <Link key={team.id} to={`/teams/${id}`} className="link">
                 <figcaption>{team.name}</figcaption>
-                </Link>
-            </figure>
+            </Link>
+        </figure>
     )
 }
 

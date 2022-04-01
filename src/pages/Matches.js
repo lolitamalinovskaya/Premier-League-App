@@ -53,8 +53,8 @@ const Matches = ({state, dispatch}) => {
                 <div>
                     <div className="matches-wrapper">
                         {state.matches && state.matches.map((match) =>
-                           <Link key={match.id} to={`/matches/${match.id}`} target="_blank"
-                                 style={{textDecoration: 'none', color: 'unset', margin: 'unset'}}> <div className="matches-card" id={match.id}>
+                           <Link key={match.id} to={`/matches/${match.id}`} style={{textDecoration: 'none', color: 'unset', margin: 'unset'}}>
+                               <div className="matches-card" id={match.id}>
                                 <figure>
                                     <img src={match.home_team.logo} alt="Logo" className="matches-logo"/>
                                     <figcaption>{match.home_team.name}</figcaption>

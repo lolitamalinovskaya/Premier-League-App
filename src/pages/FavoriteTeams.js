@@ -6,7 +6,6 @@ import Team from "../components/Team";
 const FavoriteTeams = ({state, dispatch}) => {
 
     useEffect(() => {
-
         if (state.teams === null || state.teams.length === 0) {
             fetch('https://polar-shelf-59117.herokuapp.com/api/v1/teams')
                 .then((res) => res.json())
@@ -27,7 +26,7 @@ const FavoriteTeams = ({state, dispatch}) => {
     return (
         <section>
             <h2>Favorite Teams</h2>
-            <div className={"teams"}>
+            <div className={"favorite-teams"}>
                 {!state.isLoaded ? <Progress/> :
                     state.favoriteTeams && state.favoriteTeams.map((team) => <Team team={team} key={team.id} id={team.id}/>)}
             </div>

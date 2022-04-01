@@ -1,4 +1,4 @@
-.teams {
+.teams, .favorite-teams {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -14,20 +14,37 @@
     border-radius: 10px;
     width: 170px;
     position: relative;
+    margin: unset;
 
     @media(max-width: 1024px) {
       background-color: #5b3c6c;
     }
+
+    @media(max-width: 768px) {
+      margin: unset;
+    }
+  }
+
+  .logo {
+    width: 10rem;
+    height: 10rem;
   }
 
   .link {
-    margin: 0;
+    margin: unset;
     text-decoration: none;
     color: unset;
     font-size: inherit;
+    transition: color 0.25s ease-in-out;
+
+    &:hover, &:focus {
+      color: #4db8e1;
+    }
   }
 
   figcaption {
+    padding-top: 0.5rem;
+
     @media(max-width: 768px) {
       font-size: 1.5rem;
     }
@@ -38,4 +55,8 @@
     background-color: #5b3c6c;
     transition: all 250ms ease-in-out;
   }
+}
+
+.favorite-teams {
+  justify-content: center;
 }

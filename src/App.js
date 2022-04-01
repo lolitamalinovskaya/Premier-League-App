@@ -11,9 +11,9 @@ import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import Squads from "./components/Squads";
 import MatchInfo from "./components/MatchInfo";
+import FavoriteTeams from "./pages/FavoriteTeams";
 
 import './App.scss';
-import FavoriteTeams from "./pages/FavoriteTeams";
 
 function initialState() {
     return {
@@ -28,7 +28,6 @@ function initialState() {
         matchesLinks: null,
         squad: null,
         matchInfo: null,
-        logIn: null,
         password: null,
         accessToken: null,
         userId: null,
@@ -78,7 +77,7 @@ function reducer(state, action) {
     }
     if (action.type === "LOG_OUT") {
 
-        return {...state, userId: undefined, accessToken: undefined}
+        return {...state, userId: null, accessToken: null}
     }
 
   return state;
@@ -87,6 +86,7 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {}, initialState);
+    console.log(state);
 
   return (
       <div className="wrapper-bg">

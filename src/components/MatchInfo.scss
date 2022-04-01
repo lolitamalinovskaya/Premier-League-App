@@ -1,5 +1,4 @@
 .info {
-
   &_wrapper {
     margin-bottom: 7rem;
   }
@@ -94,4 +93,35 @@
     }
   }
 
+  &_events {
+    background-color: #5b3c6c;
+    padding: 1rem;
+    border-radius: 15px;
+    background-image: url("../icons/ball.svg");
+    background-size: 8rem 8rem;
+    background-repeat: no-repeat;
+    background-position: right 1rem bottom 1rem;
+
+    @media(max-width: 768px) {
+      background-size: 4rem 4rem;
+    }
+
+    @media(max-width: 517px) {
+      background-image: unset;
+    }
+
+  }
+
+  &_description {
+    margin: 1rem 0;
+  }
+
+  h5 {
+    margin: 2rem 0;
+    font: unset;
+
+    @media(max-width: 768px) {
+      margin: 0.5rem 0;
+    }
+  }
 }
