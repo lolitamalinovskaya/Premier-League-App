@@ -5,7 +5,7 @@ export const Footer = () => {
     return (
         <div className="footer">
             <p>
-                © 2022 Copyright: Wedextim
+                © 2022 Copyright Wedextim
             </p>
         </div>
     )

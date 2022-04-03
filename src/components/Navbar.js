@@ -11,8 +11,10 @@ const Navbar = ({state, dispatch}) => {
 
     const toggleNavBar = () => setShowNavBar(!showNavBar);
     const toggleFavorite = () => setShowFavorite(!showFavorite);
+    const hideFavorite = () => setShowFavorite(false);
 
     const navClassName = showNavBar ? "navbar-show" : "navbar-hide";
+    const favoriteClassName = showFavorite ? "navbar-favorite-show" : "navbar-favorite-hide";
 
     return (
         <div className="navbar">
@@ -34,14 +36,25 @@ const Navbar = ({state, dispatch}) => {
             <li onClick={toggleNavBar} className={navClassName}>
                 <Link to="/table">Table</Link>
             </li>
-            <li onClick={toggleNavBar} className={navClassName}>
-                {!state.userId?.id ? <Link to="/logIn">LogIn</Link> :
-                    <span onClick={toggleFavorite}>{state.userId?.name}</span>}
-                {state.userId?.id ? <Link style={{marginLeft: "4rem"}} to="/user-favorite-teams">Favorite</Link> : null}
+            <li className={navClassName}>
+                {
+                    !state.userId?.id ? <Link to="/logIn">LogIn</Link> :
+                        <>
+                            <span onClick={toggleFavorite}>{state.userId?.name}</span>
+                            <div className={favoriteClassName}>
+                                <Link to="/user-favorite-teams">Favorite</Link>
+                                <Link to="favorites/results">Results</Link>
+                                <Link to="favorites/fixtures">Fixtures</Link>
+                            </div>
+                        </>
+                }
             </li>
             <li onClick={toggleNavBar} className={navClassName}>
                 {!state.userId?.id ? <Link to="/signUp">SignUp</Link> :
-                    <span onClick={() => dispatch({type: "LOG_OUT"})}>logOut</span>}
+                    <span onClick={() => {
+                        hideFavorite();
+                        dispatch({type: "LOG_OUT"})
+                    }}>logOut</span>}
             </li>
         </div>
     )

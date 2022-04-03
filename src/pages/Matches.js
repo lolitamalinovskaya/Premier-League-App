@@ -49,7 +49,7 @@ const Matches = ({state, dispatch}) => {
     return (
         <section className="matches">
             <h2>Matches</h2>
-            {!state.isLoaded ? <Progress /> :
+            {!state.isLoaded || state.matches === null ? <Progress /> :
                 <div>
                     <div className="matches-wrapper">
                         {state.matches && state.matches.map((match) =>

@@ -14,7 +14,7 @@ const Table = ({state, dispatch}) => {
     return (
         <section>
             <h2>Table</h2>
-            {!state.isLoaded ? <Progress/> :
+            {!state.isLoaded || state.table === null ? <Progress/> :
                 <div>
                     <table className="table">
                         <tbody>

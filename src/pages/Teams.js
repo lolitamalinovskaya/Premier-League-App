@@ -37,7 +37,7 @@ const Teams = ({state, dispatch}) => {
         <section>
             <h2>Teams</h2>
             <div className={"teams"}>
-                {!state.isLoaded ? <Progress/> :
+                {!state.isLoaded || state.teams === null ? <Progress/> :
                     state.teams && state.teams.map((team) => <Team onClick={onClick} team={team} key={team.id}
                                                                    id={team.id}/>)}
             </div>

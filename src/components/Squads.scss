@@ -46,12 +46,10 @@
   }
 
   &-name {
-    border: 2px solid white;
     display: flex;
     flex-direction: column;
     flex-basis: 15rem;
     padding: 0.5rem;
     background-color: #5b3c6c;
-    box-shadow: rgb(91, 60, 108) 0 8px 24px;
   }
 }

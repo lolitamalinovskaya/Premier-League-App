@@ -47,7 +47,7 @@ const Players = ({state, dispatch}) => {
     return (
         <section>
             <h2>Players</h2>
-            {!state.isLoaded ? <Progress /> :
+            {!state.isLoaded || state.players === null ? <Progress /> :
                 <div>
                     <table className="players">
                         <tbody>

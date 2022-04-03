@@ -12,6 +12,8 @@ import SignUp from "./pages/SignUp";
 import Squads from "./components/Squads";
 import MatchInfo from "./components/MatchInfo";
 import FavoriteTeams from "./pages/FavoriteTeams";
+import FavoriteTeamsResults from "./pages/FavoriteTeamsResults";
+import FavoriteTeamsFixtures from "./pages/FavoriteTeamsFixtures";
 
 import './App.scss';
 
@@ -22,6 +24,8 @@ function initialState() {
         isLoaded: false,
         error: null,
         favoriteTeams: null,
+        favoriteTeamsResults: null,
+        favoriteTeamsFixtures: null,
         matches: null,
         table: null,
         playersLinks: null,
@@ -50,6 +54,14 @@ function reducer(state, action) {
     if (action.type === "FAVORITE_TEAMS") {
 
         return {...state, favoriteTeams: action.payload, isLoaded: true}
+    }
+    if (action.type === "FAVORITE_TEAMS_RESULTS") {
+
+        return {...state, favoriteTeamsResults: action.payload, isLoaded: true}
+    }
+    if (action.type === "FAVORITE_TEAMS_FIXTURES") {
+
+        return {...state, favoriteTeamsFixtures: action.payload, isLoaded: true}
     }
     if (action.type === "MATCHES") {
 
@@ -96,6 +108,8 @@ function App() {
                       <Routes>
                           <Route path="matches/:id" element={<MatchInfo state={state} dispatch={dispatch}/>} />
                           <Route path="user-favorite-teams" element={<FavoriteTeams state={state} dispatch={dispatch}/>} />
+                          <Route path="favorites/results" element={<FavoriteTeamsResults state={state} dispatch={dispatch}/>} />
+                          <Route path="favorites/fixtures" element={<FavoriteTeamsFixtures state={state} dispatch={dispatch}/>} />
                           <Route path="teams/:id" element={<Squads state={state} dispatch={dispatch}/>} />
                           <Route exact path="/" element={<Home />} />
                           <Route path="players" element={<Players state={state} dispatch={dispatch}/>} />

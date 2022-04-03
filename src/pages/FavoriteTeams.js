@@ -23,12 +23,19 @@ const FavoriteTeams = ({state, dispatch}) => {
         }
     },[state.teams]);
 
+    let teams = [];
+    for (const team of state.favoriteTeams || []) {
+        if (teams.find(e => e.id === team.id) !== undefined) continue
+        teams.push(team);
+    }
+
     return (
         <section>
             <h2>Favorite Teams</h2>
             <div className={"favorite-teams"}>
-                {!state.isLoaded ? <Progress/> :
-                    state.favoriteTeams && state.favoriteTeams.map((team) => <Team team={team} key={team.id} id={team.id}/>)}
+                {!state.isLoaded || state.favoriteTeams === null ? <Progress/> :
+                    teams
+                        .map((team) => <Team team={team} key={team.id} id={team.id}/>)}
             </div>
         </section>
     )

@@ -57,7 +57,7 @@ const LogIn = ({state, dispatch}) => {
         return <Navigate to={'/'}/>
     }
 
-    const handleKeyPress = e => {if (e.keyCode === 0) onClick()};
+    const handleKeyPress = e => {if (e.keyCode === 13) onClick()};
 
     return (
         <section className="log-in">

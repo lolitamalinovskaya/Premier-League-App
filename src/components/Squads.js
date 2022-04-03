@@ -19,7 +19,7 @@ const Squads = ({state, dispatch}) => {
 
     return (
         <section className="squad">
-            {!state.isLoaded ? <Progress/> :
+            {!state.isLoaded || state.squad === null ? <Progress/> :
                 <div>
                     <h2>{state.squad?.name} Squad</h2>
                     <img className="squad-logo" src={state.squad?.logo} alt="logo"/>

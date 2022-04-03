@@ -14,7 +14,7 @@ const MatchInfo = ({state, dispatch}) => {
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCH_INFO", payload: res.data}))
             .then((res) =>  console.log(res))
-            .then((e) => dispatch({type: "ERROR", payload: e}))
+            .catch((e) => dispatch({type: "ERROR", payload: e}))
     }, [])
 
     const showNamePlayer = id => {
@@ -26,9 +26,11 @@ const MatchInfo = ({state, dispatch}) => {
         return `${objPlayers?.name || ''} ${objPlayers?.surname || ''}`;
     }
 
+    window.scrollTo(0,0);
+
     return (
         <section className="info">
-            {!state.isLoaded ? <Progress/> :
+            {!state.isLoaded || state.matchInfo === null ? <Progress/> :
                 <div className="info_wrapper">
                     <div className="info_header">
                         <figure className="info_inner">
@@ -47,13 +49,13 @@ const MatchInfo = ({state, dispatch}) => {
                             <figcaption className="info_name">{state.matchInfo?.away_team.name}</figcaption>
                         </figure>
                     </div>
-                    <p className="info_time">{state.matchInfo.is_finished ? 'MATCH FINISHED!' : parseDate(state.matchInfo.date)}</p>
-                    {state.matchInfo.is_finished ?
+                    <p className="info_time">{state.matchInfo?.is_finished ? 'MATCH FINISHED!' : parseDate(state.matchInfo?.date)}</p>
+                    {state.matchInfo?.is_finished ?
                         <div className="info_events">
                             <p>EVENTS</p>
                             {state.matchInfo?.game_events && state.matchInfo?.game_events.map((event) =>
                                 <div key={event.id} className={'info_description'}>
-                                        <span>{event?.event_type.description} at {event?.minute} minutes {showNamePlayer(event?.player_id)}!</span>
+                                        <span>{event?.event_type.description} in the {event?.minute}th minute by {showNamePlayer(event?.player_id)}!</span>
                                 </div>
                             )}
                         </div>
