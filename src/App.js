@@ -98,7 +98,6 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {}, initialState);
-    console.log(state);
 
   return (
       <div className="wrapper-bg">
