@@ -28,9 +28,9 @@
       height: 8rem;
     }
 
-    @media(max-width: 420px) {
-      width: 6rem;
-      height: 6rem;
+    @media(max-width: 500px) {
+      width: 4rem;
+      height: 4rem;
     }
   }
 
@@ -49,6 +49,10 @@
 
     @media(max-width: 768px) {
       font-size: calc(12px + 2vmin);
+    }
+
+    @media(max-width: 420px) {
+      font-size: calc(7px + 2vmin);
     }
   }
 

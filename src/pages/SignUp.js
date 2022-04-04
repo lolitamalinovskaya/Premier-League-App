@@ -34,8 +34,6 @@ const SignUp = () => {
         return <Navigate to={'/login'} />
     }
 
-    const handleKeyPress = e => {if (e.keyCode === 0) onClick()};
-
     return (
         <section className="log-up">
             <h2>SignUp</h2>
@@ -43,7 +41,7 @@ const SignUp = () => {
                 {error ? <b style={{textTransform: "uppercase", color: '#4db8e1', margin: "0 1rem"}}>{error.toString()}</b> : null}
                 <input ref={name} type="text" placeholder="Name *"/>
                 <input ref={email} type="text" placeholder="Email *"/>
-                <input ref={password} type="password" placeholder="Password" onKeyPress={handleKeyPress}/>
+                <input ref={password} type="password" placeholder="Password"/>
                 <button onClick={onClick}>SignUp</button>
                 <p>Already have an account ? <Link to={'/logIn'}> Log in </Link></p>
             </div>

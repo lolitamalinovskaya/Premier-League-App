@@ -13,7 +13,6 @@ const MatchInfo = ({state, dispatch}) => {
         fetch(`https://polar-shelf-59117.herokuapp.com/api/v1/matches/${id}`)
             .then((res) => res.json())
             .then((res) => dispatch({type: "MATCH_INFO", payload: res.data}))
-            .then((res) =>  console.log(res))
             .catch((e) => dispatch({type: "ERROR", payload: e}))
     }, [])
 

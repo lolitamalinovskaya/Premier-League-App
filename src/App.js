@@ -95,7 +95,6 @@ function reducer(state, action) {
   return state;
 }
 
-
 function App() {
   const [state, dispatch] = useReducer(reducer, {}, initialState);
 

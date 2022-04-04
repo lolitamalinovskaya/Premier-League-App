@@ -57,16 +57,14 @@ const LogIn = ({state, dispatch}) => {
         return <Navigate to={'/'}/>
     }
 
-    const handleKeyPress = e => {if (e.keyCode === 13) onClick()};
-
     return (
         <section className="log-in">
             <h2>LogIn</h2>
             <div className="log-in-inner">
                 <button className="google-btn" onClick={redirectToGoogle}>Login with Google</button>
-                {/*{error ? <b style={{textTransform: "uppercase", color: '#4db8e1', margin: "0 1rem"}}>{error}</b> : null}*/}
+                {error ? <b style={{textTransform: "uppercase", color: '#4db8e1', margin: "0 1rem"}}>{error}</b> : null}
                 <input ref={email} type="text" placeholder="Email"/>
-                <input ref={password} type="password" placeholder="Password" onKeyPress={handleKeyPress} />
+                <input ref={password} type="password" placeholder="Password" />
                 <button onClick={onClick}>Login</button>
                 <p>Don’t have an account ? <Link to={'/signUp'}> Register </Link></p>
             </div>
