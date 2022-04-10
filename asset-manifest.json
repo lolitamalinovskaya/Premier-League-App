@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Premier-League-App/static/css/main.7d703986.css",
-    "main.js": "/Premier-League-App/static/js/main.436217f1.js",
+    "main.js": "/Premier-League-App/static/js/main.cab40dca.js",
     "static/js/787.98c7754f.chunk.js": "/Premier-League-App/static/js/787.98c7754f.chunk.js",
     "static/media/logo.svg": "/Premier-League-App/static/media/logo.a5936c7db1972202208da738e42be04f.svg",
     "static/media/logo-home.svg": "/Premier-League-App/static/media/logo-home.b0b6bf9fe06c2ddc7b95facd3fada94c.svg",
@@ -10,11 +10,11 @@
     "static/media/redheart.svg": "/Premier-League-App/static/media/redheart.b707791acade31cd872c0aa8a959a91e.svg",
     "index.html": "/Premier-League-App/index.html",
     "main.7d703986.css.map": "/Premier-League-App/static/css/main.7d703986.css.map",
-    "main.436217f1.js.map": "/Premier-League-App/static/js/main.436217f1.js.map",
+    "main.cab40dca.js.map": "/Premier-League-App/static/js/main.cab40dca.js.map",
     "787.98c7754f.chunk.js.map": "/Premier-League-App/static/js/787.98c7754f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7d703986.css",
-    "static/js/main.436217f1.js"
+    "static/js/main.cab40dca.js"
   ]
 }
